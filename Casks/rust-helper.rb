@@ -1,13 +1,13 @@
 cask "rust-helper" do
-  version "0.3.0"
+  version "0.3.1"
 
   on_arm do
-    sha256 "42d3daa5c42586f5934ab60c1d6afb2aa6762e7ee033271dd0f8495e74710315"
-    url "https://github.com/thrashr888/rust-helper/releases/download/v#{version}/Rust.Helper_#{version}_aarch64.dmg"
+    sha256 "b6bb3810d2b25452ed930330c36f44642dece14412c27d29e8c11060e690f7b3"
+    url "https://github.com/thrashr888/rust-helper/releases/download/v0.3.1/Rust.Helper_0.3.1_aarch64.dmg"
   end
   on_intel do
-    sha256 "a68304c662b1228d397d7b5e190ec7a3f0c9463a586c8b0894eda45c6c1e2e2f"
-    url "https://github.com/thrashr888/rust-helper/releases/download/v#{version}/Rust.Helper_#{version}_x64.dmg"
+    sha256 "e5d39c737ff8017fce344fb24610b9ec373b38b6263b383fbe3c105dc6c3b0d7"
+    url "https://github.com/thrashr888/rust-helper/releases/download/v0.3.1/Rust.Helper_0.3.1_x64.dmg"
   end
 
   name "Rust Helper"
