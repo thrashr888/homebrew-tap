@@ -18,7 +18,6 @@ brew tap thrashr888/tap
 | [cortex](https://github.com/thrashr888/cortex) | Systemic and repo-local memory for AI agents | `brew install thrashr888/tap/cortex` |
 | [hcptf](https://github.com/thrashr888/hcptf-cli) | CLI for HCP Terraform with full API coverage | `brew install thrashr888/tap/hcptf` |
 | [rdos](https://github.com/thrashr888/QDOS) | A modern TUI file manager inspired by Q-DOS II | `brew install thrashr888/tap/rdos` |
-| [till](https://github.com/thrashr888/till) | Personal finance CLI for bank data | `brew install thrashr888/tap/till` |
 
 ## Casks
 
