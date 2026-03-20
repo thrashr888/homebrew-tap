@@ -13,7 +13,6 @@ cask "rust-helper" do
   name "Rust Helper"
   desc "AI-powered Rust development assistant"
   homepage "https://github.com/thrashr888/rust-helper"
-  license "MIT"
 
   depends_on macos: ">= :ventura"
 
