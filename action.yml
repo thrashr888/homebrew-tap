@@ -1,0 +1,79 @@
+name: Update Homebrew Formula
+description: Updates a formula in thrashr888/homebrew-tap with new version and SHA256 sums
+
+inputs:
+  formula:
+    description: Formula name (e.g. cider, cortex, hcptf)
+    required: true
+  version:
+    description: Version without v prefix (e.g. 0.1.3)
+    required: true
+  tag:
+    description: Git tag (e.g. v0.1.3)
+    required: true
+  tap-token:
+    description: GitHub PAT with repo scope for homebrew-tap
+    required: true
+  darwin-arm64-sha256:
+    description: SHA256 of the darwin arm64 tarball
+    required: false
+    default: ""
+  darwin-amd64-sha256:
+    description: SHA256 of the darwin amd64/x86_64 tarball
+    required: false
+    default: ""
+  linux-arm64-sha256:
+    description: SHA256 of the linux arm64 tarball
+    required: false
+    default: ""
+  linux-amd64-sha256:
+    description: SHA256 of the linux amd64/x86_64 tarball
+    required: false
+    default: ""
+  template:
+    description: Inline Ruby formula template with placeholders VERSION, TAG, SHA_DARWIN_ARM64, SHA_DARWIN_AMD64, SHA_LINUX_ARM64, SHA_LINUX_AMD64
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Generate formula
+      shell: bash
+      env:
+        FORMULA_NAME: ${{ inputs.formula }}
+        VERSION: ${{ inputs.version }}
+        TAG: ${{ inputs.tag }}
+        SHA_DARWIN_ARM64: ${{ inputs.darwin-arm64-sha256 }}
+        SHA_DARWIN_AMD64: ${{ inputs.darwin-amd64-sha256 }}
+        SHA_LINUX_ARM64: ${{ inputs.linux-arm64-sha256 }}
+        SHA_LINUX_AMD64: ${{ inputs.linux-amd64-sha256 }}
+        TEMPLATE: ${{ inputs.template }}
+      run: |
+        echo "${TEMPLATE}" \
+          | sed "s|\${VERSION}|${VERSION}|g" \
+          | sed "s|\${TAG}|${TAG}|g" \
+          | sed "s|\${SHA_DARWIN_ARM64}|${SHA_DARWIN_ARM64}|g" \
+          | sed "s|\${SHA_DARWIN_AMD64}|${SHA_DARWIN_AMD64}|g" \
+          | sed "s|\${SHA_LINUX_ARM64}|${SHA_LINUX_ARM64}|g" \
+          | sed "s|\${SHA_LINUX_AMD64}|${SHA_LINUX_AMD64}|g" \
+          > "${FORMULA_NAME}.rb"
+        echo "Generated formula:"
+        cat "${FORMULA_NAME}.rb"
+
+    - name: Push to homebrew-tap
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.tap-token }}
+        FORMULA_NAME: ${{ inputs.formula }}
+        TAG: ${{ inputs.tag }}
+      run: |
+        git clone "https://x-access-token:${GH_TOKEN}@github.com/thrashr888/homebrew-tap.git" /tmp/homebrew-tap
+        mkdir -p /tmp/homebrew-tap/Formula
+        cp "${FORMULA_NAME}.rb" "/tmp/homebrew-tap/Formula/${FORMULA_NAME}.rb"
+        cd /tmp/homebrew-tap
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add "Formula/${FORMULA_NAME}.rb"
+        git diff --cached --quiet && echo "No changes" && exit 0
+        git commit -m "Update ${FORMULA_NAME} to ${TAG}"
+        git push
