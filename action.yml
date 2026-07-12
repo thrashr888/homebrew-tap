@@ -1,10 +1,14 @@
 name: Update Homebrew Formula
-description: Updates a formula in thrashr888/homebrew-tap with new version and SHA256 sums
+description: Updates a formula or cask in thrashr888/homebrew-tap with new version and SHA256 sums
 
 inputs:
   formula:
-    description: Formula name (e.g. cider, cortex, hcptf)
+    description: Formula or cask name (e.g. cider, cortex, alchemy)
     required: true
+  type:
+    description: Definition type — "formula" (Formula/) or "cask" (Casks/)
+    required: false
+    default: formula
   tag:
     description: Git tag (e.g. v0.1.3). Version is derived by stripping the v prefix.
     required: true
@@ -62,15 +66,21 @@ runs:
       env:
         GH_TOKEN: ${{ inputs.tap-token }}
         FORMULA_NAME: ${{ inputs.formula }}
+        TYPE: ${{ inputs.type }}
         TAG: ${{ inputs.tag }}
       run: |
+        case "$TYPE" in
+          formula) DEST_DIR="Formula" ;;
+          cask)    DEST_DIR="Casks" ;;
+          *) echo "Unknown type '$TYPE' (expected formula or cask)" >&2; exit 1 ;;
+        esac
         git clone "https://x-access-token:${GH_TOKEN}@github.com/thrashr888/homebrew-tap.git" /tmp/homebrew-tap
-        mkdir -p /tmp/homebrew-tap/Formula
-        cp "${FORMULA_NAME}.rb" "/tmp/homebrew-tap/Formula/${FORMULA_NAME}.rb"
+        mkdir -p "/tmp/homebrew-tap/${DEST_DIR}"
+        cp "${FORMULA_NAME}.rb" "/tmp/homebrew-tap/${DEST_DIR}/${FORMULA_NAME}.rb"
         cd /tmp/homebrew-tap
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add "Formula/${FORMULA_NAME}.rb"
+        git add "${DEST_DIR}/${FORMULA_NAME}.rb"
         git diff --cached --quiet && echo "No changes" && exit 0
         git commit -m "Update ${FORMULA_NAME} to ${TAG}"
         git push
