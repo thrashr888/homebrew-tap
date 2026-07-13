@@ -7,7 +7,7 @@ cask "ethertext" do
   desc "AI-powered text transformation and memory for macOS"
   homepage "https://ethertext.app"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Ethertext.app"
 

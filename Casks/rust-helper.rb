@@ -14,7 +14,7 @@ cask "rust-helper" do
   desc "AI-powered Rust development assistant"
   homepage "https://github.com/thrashr888/rust-helper"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Rust Helper.app"
 
