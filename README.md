@@ -31,5 +31,6 @@ brew search thrashr888/tap
 
 | Cask | Description | Install |
 |------|-------------|---------|
+| [alchemy](https://github.com/thrashr888/alchemy) | Local-first research notebooks - grounded chat with your own sources | `brew install --cask thrashr888/tap/alchemy` |
 | [ethertext](https://ethertext.app) | AI-powered text transformation and memory for macOS | `brew install --cask thrashr888/tap/ethertext` |
 | [rust-helper](https://github.com/thrashr888/rust-helper) | AI-powered Rust development assistant | `brew install --cask thrashr888/tap/rust-helper` |
