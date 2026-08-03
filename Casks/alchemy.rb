@@ -1,8 +1,8 @@
 cask "alchemy" do
-  version "0.30.0"
-  sha256 "b3ce63ce6c623e42e245014c1d12f4b99ed64fb31838994c9bab8f8568789ba5"
+  version "0.31.0"
+  sha256 "42f436fe08bf46b3dbcd4d83dc2e6db0445f628bdf8e86ade564cb9481df98ad"
 
-  url "https://github.com/thrashr888/alchemy/releases/download/v0.30.0/Alchemy_0.30.0_aarch64.dmg"
+  url "https://github.com/thrashr888/alchemy/releases/download/v0.31.0/Alchemy_0.31.0_aarch64.dmg"
   name "Alchemy"
   desc "Local-first research notebooks - grounded chat with your own sources"
   homepage "https://github.com/thrashr888/alchemy"
