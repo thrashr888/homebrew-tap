@@ -1,28 +1,28 @@
 class Agentkernel < Formula
   desc "Run AI coding agents in secure, isolated microVMs"
   homepage "https://thrashr888.github.io/agentkernel/"
-  version "0.19.0"
+  version "0.19.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.0/agentkernel-darwin-arm64.tar.gz"
-      sha256 "e66f50e9fa87ca0af9e023ab07d23387b22483c670b7fdfdab26ef2808fc118d"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.1/agentkernel-darwin-arm64.tar.gz"
+      sha256 "48930954fc650e75203ccfcb845156d3de28b7d43f6edbd5fd86127990bb3d6b"
     end
     on_intel do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.0/agentkernel-darwin-x64.tar.gz"
-      sha256 "6fe323908b75fdea90d0f955ea5e68d06753e0647dc05a9face02270ae9bb963"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.1/agentkernel-darwin-x64.tar.gz"
+      sha256 "306995d5ddeb6e134d38e26edaae42dc400655fa45a79bd56431249d44822a02"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.0/agentkernel-linux-arm64.tar.gz"
-      sha256 "04d71d2c03a6a1fb5d1d376dd92cfb77078d82263e72e574226c6538f69b2de9"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.1/agentkernel-linux-arm64.tar.gz"
+      sha256 "574c6c6b156f8f9354ad96ad5ebbda49941f4413fe5e307e988c56b0176c3a7b"
     end
     on_intel do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.0/agentkernel-linux-x64.tar.gz"
-      sha256 "ed89ab239f24d81add71a33bdb7c5725ec800e40dc5103ae405ddb105640bf5c"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.19.1/agentkernel-linux-x64.tar.gz"
+      sha256 "143a1d6a5374d970d7700e0ef84a71154969863fbf454ea650e3e627a058835e"
     end
   end
 
@@ -32,6 +32,7 @@ class Agentkernel < Formula
 
   service do
     run [opt_bin/"agentkernel", "serve", "--host", "127.0.0.1", "--port", "18888"]
+    environment_variables PATH: "#{HOMEBREW_PREFIX}/bin:#{HOMEBREW_PREFIX}/sbin:/usr/local/bin:/usr/local/sbin:/Applications/Docker.app/Contents/Resources/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     keep_alive true
     log_path var/"log/agentkernel.log"
     error_log_path var/"log/agentkernel.error.log"
