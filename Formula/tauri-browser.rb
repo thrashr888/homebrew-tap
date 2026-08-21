@@ -1,28 +1,28 @@
 class TauriBrowser < Formula
   desc "Lightweight browser built with Tauri and Rust"
   homepage "https://github.com/thrashr888/tauri-browser"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.0/tauri-browser-aarch64-apple-darwin.tar.gz"
-      sha256 "2d8f793be9fd0b7ccb27330ea6b043c6e128c8adbb8bfff3f14004a9fccc9e73"
+      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.1/tauri-browser-aarch64-apple-darwin.tar.gz"
+      sha256 "d8b920929305615bd9a8ebd43450245e932fcb6321498a1f8665ef6bb6d99a18"
     end
     on_intel do
-      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.0/tauri-browser-x86_64-apple-darwin.tar.gz"
-      sha256 "00a693eee4273603568bcab787ece437562ce70b54b00bb75628f324148ab412"
+      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.1/tauri-browser-x86_64-apple-darwin.tar.gz"
+      sha256 "cd9d5d1c72d58bab06fcfee96dc16816a17e3400372e2911e5ba09c8552b9699"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.0/tauri-browser-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "7b15bdeb5ec86ebebaf1f355eb7e7c9b6c85793a5ecd0cd58844511c827c0a31"
+      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.1/tauri-browser-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "7032de5dc01a847f902a81f4841e858e560841e1f3b82e6f23aa7a70dbbd06be"
     end
     on_intel do
-      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.0/tauri-browser-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3916a1c1330ffdf95b27d8bd997bd3159e197f2307e9d0a6e11dca56de32a2e7"
+      url "https://github.com/thrashr888/tauri-browser/releases/download/v0.5.1/tauri-browser-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "af3094f15522cfbf89b778bf32ba52326e1b83116103f1729a46be741c09cc18"
     end
   end
 
