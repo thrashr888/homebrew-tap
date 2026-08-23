@@ -1,28 +1,28 @@
 class Agentkernel < Formula
   desc "Run AI coding agents in secure, isolated microVMs"
   homepage "https://thrashr888.github.io/agentkernel/"
-  version "0.20.0"
+  version "0.20.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.0/agentkernel-darwin-arm64.tar.gz"
-      sha256 "72ddd785dc3a80e853c6427b0f96360a9c2529c5a7f2bfc499801b322e80bbac"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.1/agentkernel-darwin-arm64.tar.gz"
+      sha256 "114eeeddf8e00f95b763763c34d021e93eb60d6d358b0a9390a5eb132295eb3d"
     end
     on_intel do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.0/agentkernel-darwin-x64.tar.gz"
-      sha256 "de98d3469d6fb9bd191a6e2d4936b1df81b123d0ddf3a13b61a04075ffdd27e6"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.1/agentkernel-darwin-x64.tar.gz"
+      sha256 "4236391ba2b4fba4f2eb68b00f2bf015a15ffa34a58a19aa1f839a904e4b30d8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.0/agentkernel-linux-arm64.tar.gz"
-      sha256 "53467ae5d7656004f4306f1b0d16f1aec8364c71bd0fba2886b8c09f8ebee026"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.1/agentkernel-linux-arm64.tar.gz"
+      sha256 "2aaa45eba3a38eba97da6226f459f633e35ca795c957eb9802de998c699bc04a"
     end
     on_intel do
-      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.0/agentkernel-linux-x64.tar.gz"
-      sha256 "aeb45d95d407c0a25ade2a58aabe1edf48e85d1626b8deb6cdc42cf1bc99d8eb"
+      url "https://github.com/thrashr888/agentkernel/releases/download/v0.20.1/agentkernel-linux-x64.tar.gz"
+      sha256 "9f1e8003340106cd290318e6e590cf84c14f9dbce504a03ffc678f8f5574f7c4"
     end
   end
 
