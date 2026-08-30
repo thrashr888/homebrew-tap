@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "homebrew_tap",
+  "project_id": "6563d664-2a81-487a-9e94-aaccb8eb085f"
+}
