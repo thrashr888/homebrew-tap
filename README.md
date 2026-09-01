@@ -19,6 +19,7 @@ brew search thrashr888/tap
 | Formula | Description | Install |
 |---------|-------------|---------|
 | [agentkernel](https://github.com/thrashr888/agentkernel) | Run AI coding agents in secure, isolated microVMs | `brew install thrashr888/tap/agentkernel` |
+| [alchemy-cli](https://github.com/thrashr888/alchemy) | Command-line client for the Alchemy research notebook app | `brew install thrashr888/tap/alchemy-cli` |
 | [allbeads](https://github.com/thrashr888/AllBeads) | Distributed protocol for agentic orchestration and communication | `brew install thrashr888/tap/allbeads` |
 | [cider](https://github.com/thrashr888/cider) | Manage macOS Apple apps from the command line | `brew install thrashr888/tap/cider` |
 | [cortex](https://github.com/thrashr888/cortex) | Systemic and repo-local memory for AI agents | `brew install thrashr888/tap/cortex` |
