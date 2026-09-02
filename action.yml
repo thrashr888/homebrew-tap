@@ -31,8 +31,22 @@ inputs:
     description: SHA256 of the linux amd64/x86_64 tarball
     required: false
     default: ""
+  bridge-url:
+    description: |
+      URL of a notarized "Cider Bridge.app" + cider-bridge tarball to install alongside
+      the binary (cider only). With bridge-sha256, fills the BRIDGE_RESOURCE, BRIDGE_INSTALL
+      and BRIDGE_CAVEATS placeholders; when empty those placeholder lines are removed.
+    required: false
+    default: ""
+  bridge-sha256:
+    description: SHA256 of the bridge tarball
+    required: false
+    default: ""
   template:
-    description: Inline Ruby formula template with placeholders VERSION, TAG, SHA_DARWIN_ARM64, SHA_DARWIN_AMD64, SHA_LINUX_ARM64, SHA_LINUX_AMD64
+    description: |
+      Inline Ruby formula template with placeholders VERSION, TAG, SHA_DARWIN_ARM64,
+      SHA_DARWIN_AMD64, SHA_LINUX_ARM64, SHA_LINUX_AMD64, and (each on its own line)
+      BRIDGE_RESOURCE, BRIDGE_INSTALL, BRIDGE_CAVEATS
     required: true
 
 runs:
@@ -47,17 +61,37 @@ runs:
         SHA_DARWIN_AMD64: ${{ inputs.darwin-amd64-sha256 }}
         SHA_LINUX_ARM64: ${{ inputs.linux-arm64-sha256 }}
         SHA_LINUX_AMD64: ${{ inputs.linux-amd64-sha256 }}
+        BRIDGE_URL: ${{ inputs.bridge-url }}
+        BRIDGE_SHA256: ${{ inputs.bridge-sha256 }}
         TEMPLATE: ${{ inputs.template }}
       run: |
         VERSION="${TAG#v}"
-        echo "${TEMPLATE}" \
-          | sed "s|\${VERSION}|${VERSION}|g" \
-          | sed "s|\${TAG}|${TAG}|g" \
-          | sed "s|\${SHA_DARWIN_ARM64}|${SHA_DARWIN_ARM64}|g" \
-          | sed "s|\${SHA_DARWIN_AMD64}|${SHA_DARWIN_AMD64}|g" \
-          | sed "s|\${SHA_LINUX_ARM64}|${SHA_LINUX_ARM64}|g" \
-          | sed "s|\${SHA_LINUX_AMD64}|${SHA_LINUX_AMD64}|g" \
-          > "${FORMULA_NAME}.rb"
+
+        # The bridge blocks are multi-line, so every placeholder is filled
+        # with bash substitution rather than sed. A BRIDGE_* placeholder
+        # occupies a whole line in the template; without a bridge that line
+        # goes away entirely.
+        BRIDGE_RESOURCE=""
+        BRIDGE_INSTALL=""
+        BRIDGE_CAVEATS=""
+        if [ -n "$BRIDGE_URL" ] && [ -n "$BRIDGE_SHA256" ]; then
+          BRIDGE_RESOURCE=$(printf '  resource "bridge" do\n    url "%s"\n    sha256 "%s"\n  end\n' \
+            "$BRIDGE_URL" "$BRIDGE_SHA256")$'\n\n'
+          BRIDGE_INSTALL=$(printf '    resource("bridge").stage do\n      libexec.install "Cider Bridge.app"\n      bin.install "cider-bridge"\n    end')$'\n'
+          BRIDGE_CAVEATS=$(printf '  def caveats\n    <<~EOS\n      Cider Bridge is installed for WeatherKit, Calendar, Reminders and Contacts.\n      Live HomeKit needs a personal build: cider bridge build --install\n      (Xcode + Apple Developer team)\n    EOS\n  end')$'\n\n'
+        fi
+
+        OUT="${TEMPLATE}"
+        OUT="${OUT//\$\{VERSION\}/${VERSION}}"
+        OUT="${OUT//\$\{TAG\}/${TAG}}"
+        OUT="${OUT//\$\{SHA_DARWIN_ARM64\}/${SHA_DARWIN_ARM64}}"
+        OUT="${OUT//\$\{SHA_DARWIN_AMD64\}/${SHA_DARWIN_AMD64}}"
+        OUT="${OUT//\$\{SHA_LINUX_ARM64\}/${SHA_LINUX_ARM64}}"
+        OUT="${OUT//\$\{SHA_LINUX_AMD64\}/${SHA_LINUX_AMD64}}"
+        OUT="${OUT//\$\{BRIDGE_RESOURCE\}$'\n'/${BRIDGE_RESOURCE}}"
+        OUT="${OUT//\$\{BRIDGE_INSTALL\}$'\n'/${BRIDGE_INSTALL}}"
+        OUT="${OUT//\$\{BRIDGE_CAVEATS\}$'\n'/${BRIDGE_CAVEATS}}"
+        printf '%s\n' "${OUT%$'\n'}" > "${FORMULA_NAME}.rb"
         echo "Generated formula:"
         cat "${FORMULA_NAME}.rb"
 
