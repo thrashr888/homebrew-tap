@@ -1,22 +1,22 @@
 class Cider < Formula
   desc "Manage macOS Apple apps from the command line"
   homepage "https://github.com/thrashr888/cider"
-  version "0.6.0"
+  version "0.6.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/thrashr888/cider/releases/download/v0.6.0/cider-aarch64-apple-darwin.tar.gz"
-      sha256 "98bd065e56093831261530c3a3afd2bfef18bf2d6fcafb696b438508204960b0"
+      url "https://github.com/thrashr888/cider/releases/download/v0.6.1/cider-aarch64-apple-darwin.tar.gz"
+      sha256 "f6b4818a8039fc681800772f1118118e4e9db6e328e2c7b6eb8ef6fbc0200196"
     else
-      url "https://github.com/thrashr888/cider/releases/download/v0.6.0/cider-x86_64-apple-darwin.tar.gz"
-      sha256 "053939390ddb5f6ca18206aa31ea4b0c78201e18ce965b329218ab3fcf69a848"
+      url "https://github.com/thrashr888/cider/releases/download/v0.6.1/cider-x86_64-apple-darwin.tar.gz"
+      sha256 "b90469a691f658338b517ad4e2f70768ffcb77885ec6c36ce65a510949c470c6"
     end
   end
 
   resource "bridge" do
-    url "https://github.com/thrashr888/cider/releases/download/v0.6.0/cider-bridge-0.6.0-macos-universal.tar.gz"
-    sha256 "729760f5bfed5d023efba188dfe3dfade4a6767d84e3cedc6d18ba1d2ad2e3a0"
+    url "https://github.com/thrashr888/cider/releases/download/v0.6.1/cider-bridge-0.6.1-macos-universal.tar.gz"
+    sha256 "d9658e5f06aafd50b9c24d3b4399711606993a1f0c6e0eb422ee891698c02b96"
   end
 
   def install
