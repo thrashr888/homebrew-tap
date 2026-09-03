@@ -19,4 +19,3 @@ cask "alchemy" do
     "~/Library/WebKit/com.thrashr888.alchemy",
   ]
 end
-
