@@ -24,6 +24,7 @@ brew search thrashr888/tap
 | [cider](https://github.com/thrashr888/cider) | Manage macOS Apple apps from the command line | `brew install thrashr888/tap/cider` |
 | [cortex](https://github.com/thrashr888/cortex) | Systemic and repo-local memory for AI agents | `brew install thrashr888/tap/cortex` |
 | [hcptf](https://github.com/thrashr888/hcptf-cli) | CLI for HCP Terraform with full API coverage | `brew install thrashr888/tap/hcptf` |
+| [shift](https://github.com/thrashr888/shift) | Coding-agent harness whose behavior is a live Guile image, with a curses TUI (command: `shift-agent`) | `brew install thrashr888/tap/shift` |
 | [rdos](https://github.com/thrashr888/QDOS) | A modern TUI file manager inspired by Q-DOS II | `brew install thrashr888/tap/rdos` |
 | [tauri-browser](https://github.com/thrashr888/tauri-browser) | Lightweight browser built with Tauri and Rust | `brew install thrashr888/tap/tauri-browser` |
 | [till](https://github.com/thrashr888/till) | Personal finance CLI for bank data | `brew install thrashr888/tap/till` |
