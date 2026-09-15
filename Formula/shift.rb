@@ -14,8 +14,14 @@ class Shift < Formula
     # Compile the Guile modules once so the first launch does not.
     system "make", "-C", libexec, "build"
     # `shift` is a shell builtin everywhere, so the command is shift-agent.
-    (bin/"shift-agent").write_exec_script libexec/"bin/shift"
-    (bin/"shift-mcp").write_exec_script libexec/"bin/shift-mcp"
+    # Plain exec wrappers: bin/shift finds the checkout from its own path.
+    { "shift-agent" => "shift", "shift-mcp" => "shift-mcp" }.each do |name, target|
+      (bin/name).write <<~SH
+        #!/bin/sh
+        exec "#{libexec}/bin/#{target}" "$@"
+      SH
+      chmod 0755, bin/name
+    end
   end
 
   def caveats
