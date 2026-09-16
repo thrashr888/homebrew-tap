@@ -1,8 +1,8 @@
 class Shift < Formula
   desc "Coding-agent harness whose behavior is a live Guile image, with a curses TUI"
   homepage "https://github.com/thrashr888/shift"
-  url "https://github.com/thrashr888/shift/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "51b09bdd45dd0bb7e2609d89fd0bd2a35f3f1b3393915d3277b07e9d5f8b745c"
+  url "https://github.com/thrashr888/shift/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "15278e52a2d4136f369cbeaea26ab368d779defa768c603b4ce630f5fd4a6389"
   license "MIT"
 
   depends_on "guile"
