@@ -1,16 +1,16 @@
 class Cider < Formula
   desc "Manage macOS Apple apps from the command line"
   homepage "https://github.com/thrashr888/cider"
-  version "0.6.2"
+  version "0.7.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/thrashr888/cider/releases/download/v0.6.2/cider-aarch64-apple-darwin.tar.gz"
-      sha256 "adf170e9bfb2a418db5ea45e935741d16ceda5983b99a103c602f02cdb21ddfa"
+      url "https://github.com/thrashr888/cider/releases/download/v0.7.0/cider-aarch64-apple-darwin.tar.gz"
+      sha256 "9ac3540bab1f9da71dbfcee6c691d98be0c8b978cc5f9057d6bc1dc268c2a4b7"
     else
-      url "https://github.com/thrashr888/cider/releases/download/v0.6.2/cider-x86_64-apple-darwin.tar.gz"
-      sha256 "d71b0e7ded7f56b2d3e0ede8e931201da58312b488758900492036e1d2ddc56a"
+      url "https://github.com/thrashr888/cider/releases/download/v0.7.0/cider-x86_64-apple-darwin.tar.gz"
+      sha256 "2662b4b2172e515ce12a4aa48a2d00226ab7b556474bf4357ad6fadf7a743ac8"
     end
   end
 
