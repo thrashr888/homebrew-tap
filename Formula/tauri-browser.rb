@@ -1,5 +1,5 @@
 class TauriBrowser < Formula
-  desc "Lightweight browser built with Tauri and Rust"
+  desc "Inspect, test, and debug running Tauri apps"
   homepage "https://github.com/thrashr888/tauri-browser"
   version "0.6.0"
   license "MIT"
@@ -34,4 +34,3 @@ class TauriBrowser < Formula
     assert_match "tauri-browser", shell_output("#{bin}/tauri-browser --help")
   end
 end
-
