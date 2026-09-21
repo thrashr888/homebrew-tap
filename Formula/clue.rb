@@ -1,15 +1,15 @@
 class Clue < Formula
   desc "Semantic ranking for CLI output and bounded agent context"
   homepage "https://github.com/thrashr888/clue"
-  url "https://github.com/thrashr888/clue/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "6e56ad8dcb27c3189a099e1134c9ed8656ff71073c44ebbc1b9b3819eca41adc"
+  url "https://github.com/thrashr888/clue/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "1ef6aafc8851ab83d7dad47b28e3508e1ef183e575b3c381f3d97bcd8a179c73"
   license "MIT"
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
-    pkgshare.install "profiles", "skills", "examples"
+    pkgshare.install "profiles", "skills", "examples", "scripts", "docs"
   end
 
   test do
@@ -29,5 +29,8 @@ class Clue < Formula
     profiles = JSON.parse(shell_output("#{bin}/clue profiles list"))
     assert_includes profiles["profiles"], "beads-ready"
     assert_path_exists pkgshare/"skills/clue-rank/SKILL.md"
+    assert_path_exists pkgshare/"scripts/serve_laya.py"
+    schema = JSON.parse(shell_output("#{bin}/clue schema"))
+    assert_equal ["typesafe", "systemone", "ollama"], schema["providers"]
   end
 end
