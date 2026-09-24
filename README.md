@@ -37,4 +37,4 @@ brew search thrashr888/tap
 | [alchemy](https://github.com/thrashr888/alchemy) | Local-first research notebooks - grounded chat with your own sources | `brew install --cask thrashr888/tap/alchemy` |
 | [ethertext](https://ethertext.app) | AI-powered text transformation and memory for macOS | `brew install --cask thrashr888/tap/ethertext` |
 | [rust-helper](https://github.com/thrashr888/rust-helper) | AI-powered Rust development assistant | `brew install --cask thrashr888/tap/rust-helper` |
-| [habitable](https://github.com/thrashr888/homebrew-tap/releases/tag/habitable-v0.1.0) | Native Terraform workspace and plan manager | `brew install --cask thrashr888/tap/habitable` |
+| [habitable](https://github.com/thrashr888/homebrew-tap/releases/tag/habitable-v0.2.0) | Native Terraform workspace and plan manager | `brew install --cask thrashr888/tap/habitable` |
