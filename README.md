@@ -24,6 +24,7 @@ brew search thrashr888/tap
 | [cider](https://github.com/thrashr888/cider) | Manage macOS Apple apps from the command line | `brew install thrashr888/tap/cider` |
 | [clue](https://github.com/thrashr888/clue) | Semantic ranking for CLI output, local search, and bounded agent context | `brew install thrashr888/tap/clue` |
 | [cortex](https://github.com/thrashr888/cortex) | Systemic and repo-local memory for AI agents | `brew install thrashr888/tap/cortex` |
+| [fan](https://github.com/thrashr888/fan) | See actual Mac fan RPM and test which busy app may be heating it | `brew install thrashr888/tap/fan` |
 | [hcptf](https://github.com/thrashr888/hcptf-cli) | CLI for HCP Terraform with full API coverage | `brew install thrashr888/tap/hcptf` |
 | [shift](https://github.com/thrashr888/shift) | Coding-agent harness whose behavior is a live Guile image, with a curses TUI (command: `shift-agent`) | `brew install thrashr888/tap/shift` |
 | [rdos](https://github.com/thrashr888/QDOS) | A modern TUI file manager inspired by Q-DOS II | `brew install thrashr888/tap/rdos` |
