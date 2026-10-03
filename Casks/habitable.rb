@@ -1,6 +1,6 @@
 cask "habitable" do
-  version "0.4.3"
-  sha256 "80eebe89115846d2e0155fa1165a509dee405226d37eadbb278e56083630204b"
+  version "0.4.4"
+  sha256 "686acb1655a8940d4ceb320fa10865dec920a03a6fb2f05818ef993739eca5bc"
 
   url "https://github.com/thrashr888/homebrew-tap/releases/download/habitable-v#{version}/Habitable-#{version}-macos-universal.zip"
   name "Habitable"
