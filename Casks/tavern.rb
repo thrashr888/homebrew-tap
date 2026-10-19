@@ -1,6 +1,6 @@
 cask "tavern" do
-  version "1.0.2"
-  sha256 "6e56e29a4ed0e4387b9f851b190376a6f8a2602147181b4f4f1398203ce98b99"
+  version "1.0.3"
+  sha256 "29ca72479ce7d872b145fc4ca58a2d6c80bcb9f2c97c617dd77ab5feaba71926"
 
   url "https://github.com/thrashr888/tavern/releases/download/v#{version}/Tavern-#{version}-macos-arm64.zip"
   name "Tavern"
