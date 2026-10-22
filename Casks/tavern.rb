@@ -1,8 +1,8 @@
 cask "tavern" do
-  version "1.0.11"
-  sha256 "d9e22b806f5aeba314e6f434062c440f3adea98706bc2c909600c6b1b1a06fc7"
+  version "1.0.12"
+  sha256 "de2cea17684e02bbba8f8ce900d16870986d72e8b901021e680e42a58bfeaec5"
 
-  url "https://github.com/thrashr888/tavern/releases/download/v1.0.11/Tavern-1.0.11-macos-arm64.zip"
+  url "https://github.com/thrashr888/tavern/releases/download/v1.0.12/Tavern-1.0.12-macos-arm64.zip"
   name "Tavern"
   desc "Home for a party of AI agents: Pi agents, hosted members, mail and goals"
   homepage "https://github.com/thrashr888/tavern"
