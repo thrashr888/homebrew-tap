@@ -1,12 +1,12 @@
 cask "agentkernel" do
-  version "0.21.1"
+  version "0.21.2"
 
   on_arm do
-    sha256 "4cc98f427088016f74fbae344ca0ddc609d8fb3944ad63d993173faa7be07687"
+    sha256 "104e5b9e3f9a0bfe83d4f250f75c20f81b4d614ced71ec910eedd8cec5f28a8d"
     url "https://github.com/thrashr888/agentkernel/releases/download/v#{version}/AgentKernel_#{version}_aarch64-arm64.dmg"
   end
   on_intel do
-    sha256 "af6494eaca70ad980e8fd6e9e5dd37bd261ce06cf59e7eaf4960326cf3e0d7a1"
+    sha256 "832860532797e51cef977ae92de190dffb689d0787092c02f24ccd18a36f9806"
     url "https://github.com/thrashr888/agentkernel/releases/download/v#{version}/AgentKernel_#{version}_x64-x64.dmg"
   end
 
