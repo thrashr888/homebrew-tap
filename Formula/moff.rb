@@ -1,16 +1,16 @@
 class Moff < Formula
   desc "Agent-first Microsoft 365 CLI"
   homepage "https://github.com/thrashr888/moff"
-  version "0.6.1"
+  version "0.6.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/thrashr888/moff/releases/download/v0.6.1/moff-aarch64-apple-darwin.tar.gz"
-      sha256 "3fdf9666650e0098a9f537777ceb035e92943c4fa47598af66c33751063d92fb"
+      url "https://github.com/thrashr888/moff/releases/download/v0.6.2/moff-aarch64-apple-darwin.tar.gz"
+      sha256 "6d6e33f679440609284a597556971915719654a64fc212daf81cae72698e1658"
     else
-      url "https://github.com/thrashr888/moff/releases/download/v0.6.1/moff-x86_64-apple-darwin.tar.gz"
-      sha256 "94e8abd31d6b3be9aee7d6574a8a0fd5311cc0210e3bbaf72dac54caade8a263"
+      url "https://github.com/thrashr888/moff/releases/download/v0.6.2/moff-x86_64-apple-darwin.tar.gz"
+      sha256 "f1dab96b0ee668e4dd32b4115c29042a4f62cf5f35642f7bbc5760b51e2e2f38"
     end
   end
 
